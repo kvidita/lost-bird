@@ -1,0 +1,9 @@
+1st Objective
+  1.Make a grid
+  2.Display the grid
+  3.Hardcode a star as a bird inside the grid
+  
+2nd Objective
+  1.Move bird forward automatically.
+  2.Add upward and downward movement.
+  3.Stop bird once it reaches its nest.
