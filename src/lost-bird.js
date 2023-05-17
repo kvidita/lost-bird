@@ -9,7 +9,7 @@ class creature {
   constructor(icon, xCordinate, yCordinate) {
     this.#x = xCordinate;
     this.#y = yCordinate;
-    this.#icon = "🕊";
+    this.#icon = icon;
   }
 
   xUp() {
@@ -37,9 +37,12 @@ const lostBird = function () {
   const grid = new Array(100).fill(" ");
   const space = chunk(grid, 20);
   const nest = "🪺";
-  const bird = new creature();
+  const bird = new creature("🕊", 2, 19);
   space[2][0] = nest;
-  space[2][space[2].length - 1] = bird.icon;
+
+  readNextMove();
+  console.log(bird.x, bird.y);
+  space[bird.x][bird.y] = bird.icon;
   display(space);
 };
 
@@ -47,14 +50,12 @@ const display = (list) => {
   console.log(list.join("\n"));
 };
 
-const playersMove = () => {
+const readNextMove = () => {
   console.log(fs.readFileSync("./resource/players-input.txt", "utf-8"));
 };
 
 const moveBird = () => {};
 
 lostBird();
-const manjeet = new creature(1, 2);
-console.log(manjeet.xDown(), manjeet.x);
 
-playersMove();
+// playersMove();

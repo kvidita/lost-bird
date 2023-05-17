@@ -1,3 +1,5 @@
+main Objective => to move the bird to it's nest.
+
 1st Objective
   1.Make a grid
   2.Display the grid
