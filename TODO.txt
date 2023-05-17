@@ -9,3 +9,13 @@ main Objective => to move the bird to it's nest.
   1.Move bird forward automatically.
   2.Add upward and downward movement.
   3.Stop bird once it reaches its nest.
+
+day1
+  objective 1 completed
+  objective 2 - part 1 and part 2 completed 
+  moved bird automatically
+  also moved the bird by using 'w' and 's'
+
+Issues
+    bird not stopping in last column when space is over
+    bird going outside the grid and throwing errors.

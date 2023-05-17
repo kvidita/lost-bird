@@ -20,6 +20,10 @@ class creature {
     this.#x += 1;
   }
 
+  decrementY() {
+    this.#y -= 1;
+  }
+
   get x() {
     return this.#x;
   }
@@ -31,19 +35,36 @@ class creature {
   get icon() {
     return this.#icon;
   }
+
+  move(direction) {
+    this.decrementY();
+    if (direction === "w") {
+      this.xUp();
+    }
+    if (direction === "s") {
+      this.xDown();
+    }
+  }
 }
+
+// const initializeGame = () => {};
 
 const lostBird = function () {
   const grid = new Array(100).fill(" ");
   const space = chunk(grid, 20);
-  const nest = "🪺";
   const bird = new creature("🕊", 2, 19);
+
+  const nest = "🪺";
   space[2][0] = nest;
 
-  readNextMove();
-  console.log(bird.x, bird.y);
-  space[bird.x][bird.y] = bird.icon;
-  display(space);
+  setInterval(() => {
+    console.clear();
+    space[bird.x][bird.y] = bird.icon;
+    display(space);
+    console.log(bird.y);
+    const currentMove = readNextMove();
+    bird.move(currentMove);
+  }, 3000);
 };
 
 const display = (list) => {
@@ -51,11 +72,11 @@ const display = (list) => {
 };
 
 const readNextMove = () => {
-  console.log(fs.readFileSync("./resource/players-input.txt", "utf-8"));
+  const fileContent = fs.readFileSync("./resource/players-input.txt", "utf-8");
+  const [currentMove] = fileContent.split("\n").slice(-1);
+  return currentMove;
 };
 
 const moveBird = () => {};
 
 lostBird();
-
-// playersMove();
