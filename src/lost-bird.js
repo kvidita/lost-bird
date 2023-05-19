@@ -64,9 +64,17 @@ class creature {
 
 // const initializeGame = () => {};
 const readNextMove = () => {
+  /*
   const fileContent = fs.readFileSync("./resource/players-input.txt", "utf-8");
   const [currentMove] = fileContent.split("\n").slice(-1);
   return currentMove;
+  */
+  process.stdin.setEncoding('utf-8');
+  const playerInput = process.stdin.read()
+    ;
+  if (playerInput) {
+    return playerInput.trim();
+  }
 };
 
 const display = (list) => {
@@ -87,8 +95,10 @@ const lostBird = function() {
     display(space);
     console.log(bird.y);
     const currentMove = readNextMove();
-    bird.move(currentMove);
-  }, 3000);
+    if (currentMove) {
+      bird.move(currentMove);
+    }
+  }, 300);
 };
 
 
