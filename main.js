@@ -1,3 +1,7 @@
-const {} = require("");
+const { runLostBird } = require("./src/lost-bird.js");
 
-const main = () => {};
+const main = () => {
+  runLostBird();
+};
+
+main();
