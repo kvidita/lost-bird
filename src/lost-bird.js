@@ -10,7 +10,7 @@ const navigate = (space, bird) => {
   display(space);
 
   console.log(bird.y);
-  bird.decrementY();
+  bird.flyForward();
   const currentMove = readNextMove();
 
   if (currentMove) {

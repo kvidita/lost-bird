@@ -12,51 +12,51 @@ class Bird {
     this.#prevX = this.#x;
     this.#prevY = this.#y;
 
-  }
+  };
 
-  xUp() {
+  flyUp() {
     this.#x -= 1;
-  }
+  };
 
-  xDown() {
+  flyDown() {
     this.#x += 1;
-  }
+  };
 
-  decrementY() {
+  flyForward() {
     this.#prevX = this.#x;
     this.#prevY = this.#y;
     this.#y -= 1;
-  }
+  };
 
   get x() {
     return this.#x;
-  }
+  };
 
   get y() {
     return this.#y;
-  }
+  };
 
   get icon() {
     return this.#icon;
-  }
+  };
 
   get previousX() {
     return this.#prevX;
-  }
+  };
 
   get previousY() {
     return this.#prevY;
-  }
+  };
 
   move(direction) {
     this.#prevX = this.#x;
     this.#prevY = this.#y;
-    this.decrementY();
+    this.flyForward();
     if (direction === "w") {
-      this.xUp();
+      this.flyUp();
     }
     if (direction === "s") {
-      this.xDown();
+      this.flyDown();
     }
   }
 };
