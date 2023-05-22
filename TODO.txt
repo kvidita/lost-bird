@@ -6,9 +6,9 @@ main Objective => to move the bird to it's nest.
   3.Hardcode a star as a bird inside the grid
   
 2nd Objective
-  1.Move bird forward automatically.
-  2.Add upward and downward movement.
-  3.Stop bird once it reaches its nest.
+  [*]1.Move bird forward automatically.
+  [*]2.Add upward and downward movement.
+  [*]3.Stop bird once it reaches its nest.
 
 day1
   objective 1 completed
@@ -28,7 +28,6 @@ solutions
     -keep track of last coordinates of bird.
 
 new updates
- [*] move functions to respective files`
  [] add a feature if cordinate matches with nest show win message
  [] make it to domain level 
  [] bird doesn't know about the previous position the logic should be outside the class
@@ -36,4 +35,5 @@ new updates
      make a small grid 
  [] Remove the commas with empty spaces
 
- ** class methods to inprove and remove all logics from class methods **
+ [*] move functions to respective files`
+ ** class methods to improve and remove all logics from class methods **
