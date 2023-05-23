@@ -17,8 +17,8 @@ day1
   also moved the bird by using 'w' and 's'
 
 Issues
-  [-]  bird not stopping in last column when space is over
-  [-]  bird going outside the grid and throwing errors.
+  [*]  bird not stopping in last column when space is over
+  [*]  bird going outside the grid and throwing errors.
   [*]  bird's icon remaining in the previous coordinates.
   [*]  standardInput for navigation
 
@@ -28,7 +28,7 @@ solutions
     -keep track of last coordinates of bird.
 
 new updates
- [] add a feature if cordinate matches with nest show win message
+ [*] add a feature if cordinate matches with nest show win message
  [] make it to domain level 
  [] bird doesn't know about the previous position the logic should be outside the class
  [] small problem to think -
@@ -36,4 +36,6 @@ new updates
  [] Remove the commas with empty spaces
 
  [*] move functions to respective files`
- ** class methods to improve and remove all logics from class methods **
+ [*] class methods to improve and remove all logics from class methods
+
+ [] We want to implement obstacles

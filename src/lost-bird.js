@@ -3,8 +3,11 @@ const { Bird } = require("./bird.js");
 const { display, readNextMove } = require("./interface.js");
 
 const navigate = (space, bird, flyBird) => {
-  if(bird.y === 0) {
-    if(bird.x === 2) {
+  let previousX = bird.x;
+  let previousY = bird.y;
+
+  if (bird.y === 0) {
+    if (bird.x === 2) {
       console.log('Bird reach its nest');
     } else {
       console.log('Bird lost');
@@ -15,25 +18,23 @@ const navigate = (space, bird, flyBird) => {
 
   bird.flyForward();
   const currentMove = readNextMove();
-  space[bird.previousX][bird.previousY] = " ";
-  
-  if (currentMove) {
-    if(currentMove === 'w' && bird.x > 0) {
-      bird.flyUp();
-    }
-    if(currentMove === 's' && bird.x < 4) {
-      bird.flyDown();
-    }
+  space[previousX][previousY] = " ";
+
+  if (currentMove === 'w' && bird.x > 0) {
+    bird.flyUp();
+  }
+  if (currentMove === 's' && bird.x < 4) {
+    bird.flyDown();
   }
 
   console.clear();
-  space[bird.previousX][bird.previousY] = " ";
+  space[previousX][previousY] = " ";
   space[bird.x][bird.y] = bird.icon;
 
   display(space);
 };
 
-const runLostBird = function() {
+const runLostBird = function () {
   const grid = new Array(100).fill(" ");
   const space = chunk(grid, 20);
   const bird = new Bird("🕊", 2, 19);
