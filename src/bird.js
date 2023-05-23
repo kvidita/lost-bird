@@ -15,10 +15,14 @@ class Bird {
   };
 
   flyUp() {
+    this.#prevX = this.#x;
+    this.#prevY = this.#y;
     this.#x -= 1;
   };
 
   flyDown() {
+    this.#prevX = this.#x;
+    this.#prevY = this.#y;
     this.#x += 1;
   };
 
@@ -47,18 +51,6 @@ class Bird {
   get previousY() {
     return this.#prevY;
   };
-
-  move(direction) {
-    this.#prevX = this.#x;
-    this.#prevY = this.#y;
-    this.flyForward();
-    if (direction === "w") {
-      this.flyUp();
-    }
-    if (direction === "s") {
-      this.flyDown();
-    }
-  }
 };
 
 exports.Bird = Bird;
