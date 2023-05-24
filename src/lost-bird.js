@@ -8,9 +8,9 @@ const navigate = (space, bird, flyBird) => {
 
   if (bird.y === 0) {
     if (bird.x === 2) {
-      console.log('Bird reach its nest');
+      console.log('🤘Hurray...!!! Bird reach its nest');
     } else {
-      console.log('Bird lost');
+      console.log('🙁 Ohh no...!!! Bird lost');
     }
     clearInterval(flyBird);
     return;
@@ -37,7 +37,8 @@ const navigate = (space, bird, flyBird) => {
 const runLostBird = function () {
   const grid = new Array(100).fill(" ");
   const space = chunk(grid, 20);
-  const bird = new Bird("🕊", 2, 19);
+  const birdCoordinate = { x: 2, y: 19 };
+  const bird = new Bird("🕊", birdCoordinate);
   const nest = "🪺";
   space[2][0] = nest;
 

@@ -1,32 +1,30 @@
 class Bird {
-  #x;
-  #y;
+  #coordinate
   #icon;
 
-  constructor(icon, xCordinate, yCordinate) {
-    this.#x = xCordinate;
-    this.#y = yCordinate;
+  constructor(icon, birdCordinate) {
+    this.#coordinate = birdCordinate;
     this.#icon = icon;
   };
 
   flyUp() {
-    this.#x -= 1;
+    this.#coordinate.x -= 1;
   };
 
   flyDown() {
-    this.#x += 1;
+    this.#coordinate.x += 1;
   };
 
   flyForward() {
-    this.#y -= 1;
+    this.#coordinate.y -= 1;
   };
 
   get x() {
-    return this.#x;
+    return this.#coordinate.x;
   };
 
   get y() {
-    return this.#y;
+    return this.#coordinate.y;
   };
 
   get icon() {
