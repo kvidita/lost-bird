@@ -6,7 +6,7 @@ const readNextMove = () => {
   process.stdin.setEncoding('utf-8');
   const playerInput = process.stdin.read();
   if (playerInput) {
-    return playerInput.trim();
+    return playerInput[0];
   }
 };
 
