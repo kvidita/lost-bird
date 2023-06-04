@@ -1,5 +1,7 @@
 const display = (list) => {
-  console.log(list.join("\n"));
+  console.log('\n\n\n');
+  const gameSpace = list.join("\n\t\t\t\t").replaceAll(",", ".");
+  console.log(`\t\t\t\t${gameSpace}`);
 };
 
 const readNextMove = () => {

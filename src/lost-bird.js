@@ -8,7 +8,7 @@ const navigate = (space, bird, flyBird) => {
 
   if (bird.y === 0) {
     if (bird.x === 2) {
-      console.log('🤘Hurray...!!! Bird reach its nest');
+      console.log('🤘Hurray...!!! Bird reached its nest');
     } else {
       console.log('🙁 Ohh no...!!! Bird lost');
     }
