@@ -39,20 +39,3 @@ new updates
  [*] class methods to improve and remove all logics from class methods
 
  [] We want to implement obstacles
-<<<<<<< HEAD
-=======
-
- -------
- 25 May 2022 FeedBack
-
- 1. Grid can be an entity (class)
- 2. Clear previous and move can extracted into functions
- 3. Random nest and bird positions to start 
- 4. If condition for boundary can be named(can be extracted into variables)
- 5. Try to extract things into functions
- 6. Implement real time input
- 7. Add guide to game in 1st level of game
- 8. Space or grid will have a property
- 9. Increase space size and place it in the middle
- 10. There will be a multiple level of game, we will keep a track of lap
->>>>>>> 4d5805f (added todo)
