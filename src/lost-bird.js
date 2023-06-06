@@ -47,14 +47,14 @@ const navigate = (space, bird, flyBird, obstacleCoordinate, nestCoordinate) => {
 const runLostBird = function() {
   const grid = new Array(100).fill(" ");
   const space = chunk(grid, 20);
-  
+
   const birdCoordinate = { x: 2, y: 19 };
   const bird = new Bird("🕊", birdCoordinate);
-  
+
   const nest = "🪺";
   space[2][0] = nest;
   const nestCoordinate = { y: 0, x: 2 };
-  
+
   const obstacle = "💣";
   space[1][4] = obstacle;
   const obstacleCoordinate = { y: 4, x: 1 };

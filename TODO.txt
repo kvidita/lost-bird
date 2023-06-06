@@ -45,6 +45,6 @@ new updates
 
 Feature or improvement that can be added
 [*] move the grid in the center
-[] adding obstacles in the game in fixed location.
+[*] adding obstacles in the game in fixed location.
 [] direct reading from the screen.
 [] adding levels, in which obstacles will be introduced.
