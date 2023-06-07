@@ -48,3 +48,10 @@ Feature or improvement that can be added
 [*] adding obstacles in the game in fixed location.
 [] direct reading from the screen.
 [] adding levels, in which obstacles will be introduced.
+
+7th june 2023
+feedback: 
+[1] space can be an object and bird, nest and bomb can be entries
+[2] breakdown into small functions so that parameters passed are less
+[3] read documentations for stdin
+[4] cursor hide, screen resolution, clear screen down

@@ -2,7 +2,7 @@ const { chunk } = require("../lib/array.js");
 const { Bird } = require("./bird.js");
 const { display, readNextMove } = require("./interface.js");
 
-const navigate = (space, bird, flyBird, obstacleCoordinate, nestCoordinate) => {
+const navigate = (space, bird, flyIntervalID, obstacleCoordinate, nestCoordinate, currentMove) => {
   const previousX = bird.x;
   const previousY = bird.y;
 
@@ -12,13 +12,14 @@ const navigate = (space, bird, flyBird, obstacleCoordinate, nestCoordinate) => {
     } else {
       console.log('🙁 Ohh no...!!! Bird lost');
     }
-    clearInterval(flyBird);
+    clearInterval(flyIntervalID);
     return;
   }
 
   const birdCoordinate = { y: bird.y, x: bird.x };
   bird.flyForward();
-  const currentMove = readNextMove();
+  // const currentMove = readNextMove();
+  console.log(currentMove);
   space[previousX][previousY] = " ";
 
   if (currentMove === 'w' && bird.x > 0) {
@@ -34,7 +35,7 @@ const navigate = (space, bird, flyBird, obstacleCoordinate, nestCoordinate) => {
     process.stdout.write("you hit an obstacle");
     space[previousX][previousY] = "💥";
     display(space);
-    clearInterval(flyBird);
+    clearInterval(flyIntervalID);
     return;
   }
 
@@ -44,7 +45,7 @@ const navigate = (space, bird, flyBird, obstacleCoordinate, nestCoordinate) => {
   display(space);
 };
 
-const runLostBird = function() {
+const runLostBird = function () {
   const grid = new Array(100).fill(" ");
   const space = chunk(grid, 20);
 
@@ -59,9 +60,49 @@ const runLostBird = function() {
   space[1][4] = obstacle;
   const obstacleCoordinate = { y: 4, x: 1 };
 
-  const flyBird = setInterval(() => {
-    navigate(space, bird, flyBird, obstacleCoordinate, nestCoordinate);
+  // watchStdin(flyIntervalID, space, bird, obstacleCoordinate, nestCoordinate);
+  const isEOI = (key) => key === 'q';
+  const onEnd = () => clearInterval(flyIntervalID);
+  const onData = (keyPressed) => navigate(
+    space,
+    bird,
+    flyIntervalID,
+    obstacleCoordinate,
+    nestCoordinate,
+    keyPressed
+  );
+
+  watchStdin(onData, isEOI, onEnd);
+
+  const flyIntervalID = setInterval(() => {
+    navigate(space, bird, flyIntervalID, obstacleCoordinate, nestCoordinate);
   }, 1000);
 };
 
+const stopStdinStream = () => {
+  process.stdin.setRawMode(false);
+  process.stdin.pause();
+}
+
+const startStdinStream = () => {
+  process.stdin.setEncoding('utf-8');
+  process.stdin.setRawMode(true);
+}
+
+const watchStdin = (onData, isEOI, onEnd) => {
+  startStdinStream();
+
+  process.stdin.on('data', (keyPressed) => {
+    if (isEOI(keyPressed)) {
+      stopStdinStream();
+      onEnd();
+      return;
+    }
+    onData(keyPressed);
+  });
+}
+
 exports.runLostBird = runLostBird;
+
+
+

@@ -4,13 +4,4 @@ const display = (list) => {
   console.log(`\t\t\t\t${gameSpace}`);
 };
 
-const readNextMove = () => {
-  process.stdin.setEncoding('utf-8');
-  const playerInput = process.stdin.read();
-  if (playerInput) {
-    return playerInput[0];
-  }
-};
-
 exports.display = display;
-exports.readNextMove = readNextMove;
