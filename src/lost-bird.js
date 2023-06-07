@@ -1,8 +1,13 @@
 const { chunk } = require("../lib/array.js");
 const { Bird } = require("./bird.js");
-const { display, readNextMove } = require("./interface.js");
+const { display } = require("./interface.js");
 
-const navigate = (space, bird, flyIntervalID, obstacleCoordinate, nestCoordinate, currentMove) => {
+const navigate = (space, 
+  bird, 
+  flyIntervalID, 
+  obstacleCoordinate, 
+  nestCoordinate, 
+  currentMove) => {
   const previousX = bird.x;
   const previousY = bird.y;
 
@@ -13,12 +18,12 @@ const navigate = (space, bird, flyIntervalID, obstacleCoordinate, nestCoordinate
       console.log('🙁 Ohh no...!!! Bird lost');
     }
     clearInterval(flyIntervalID);
+    stopStdinStream();
     return;
   }
 
   const birdCoordinate = { y: bird.y, x: bird.x };
   bird.flyForward();
-  // const currentMove = readNextMove();
   console.log(currentMove);
   space[previousX][previousY] = " ";
 
@@ -36,6 +41,7 @@ const navigate = (space, bird, flyIntervalID, obstacleCoordinate, nestCoordinate
     space[previousX][previousY] = "💥";
     display(space);
     clearInterval(flyIntervalID);
+    stopStdinStream();
     return;
   }
 
@@ -60,7 +66,6 @@ const runLostBird = function () {
   space[1][4] = obstacle;
   const obstacleCoordinate = { y: 4, x: 1 };
 
-  // watchStdin(flyIntervalID, space, bird, obstacleCoordinate, nestCoordinate);
   const isEOI = (key) => key === 'q';
   const onEnd = () => clearInterval(flyIntervalID);
   const onData = (keyPressed) => navigate(
@@ -82,12 +87,12 @@ const runLostBird = function () {
 const stopStdinStream = () => {
   process.stdin.setRawMode(false);
   process.stdin.pause();
-}
+};
 
 const startStdinStream = () => {
   process.stdin.setEncoding('utf-8');
   process.stdin.setRawMode(true);
-}
+};
 
 const watchStdin = (onData, isEOI, onEnd) => {
   startStdinStream();
@@ -103,6 +108,3 @@ const watchStdin = (onData, isEOI, onEnd) => {
 }
 
 exports.runLostBird = runLostBird;
-
-
-

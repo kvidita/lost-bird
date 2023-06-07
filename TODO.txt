@@ -55,3 +55,5 @@ feedback:
 [2] breakdown into small functions so that parameters passed are less
 [3] read documentations for stdin
 [4] cursor hide, screen resolution, clear screen down
+[5] identify the entities and extract them
+[6] apply new concepts when learned as we progress
