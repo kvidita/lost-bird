@@ -2,11 +2,11 @@ const { chunk } = require("../lib/array.js");
 const { Bird } = require("./bird.js");
 const { display } = require("./interface.js");
 
-const navigate = (space, 
-  bird, 
-  flyIntervalID, 
-  obstacleCoordinate, 
-  nestCoordinate, 
+const navigate = (space,
+  bird,
+  flyIntervalID,
+  obstacleCoordinate,
+  nestCoordinate,
   currentMove) => {
   const previousX = bird.x;
   const previousY = bird.y;
@@ -36,7 +36,8 @@ const navigate = (space,
   }
   console.clear();
 
-  if (birdCoordinate.x === obstacleCoordinate.x && birdCoordinate.y === obstacleCoordinate.y) {
+  const isCollided = birdCoordinate.x === obstacleCoordinate.x && birdCoordinate.y === obstacleCoordinate.y;
+  if (isCollided) {
     process.stdout.write("you hit an obstacle");
     space[previousX][previousY] = "💥";
     display(space);
@@ -51,7 +52,7 @@ const navigate = (space,
   display(space);
 };
 
-const runLostBird = function () {
+const runLostBird = function() {
   const grid = new Array(100).fill(" ");
   const space = chunk(grid, 20);
 
